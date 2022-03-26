@@ -1,0 +1,152 @@
+// We define MY_LED to be the LED that we want to blink. 
+//
+// In this tutorial, we're using the blue D7 LED (next to D7 on the Photon 
+// and Electron, and next to the USB connector on the Argon and Boron).
+const pin_t MY_LED = D7;
+
+// The following line is optional, but recommended in most firmware. It 
+// allows your code to run before the cloud is connected. In this case, 
+// it will begin blinking almost immediately instead of waiting until 
+// breathing cyan,
+SYSTEM_THREAD(ENABLED);
+
+// The setup() method is called once when the device boots.
+void setup() {
+	// In order to set a pin, you must tell Device OS that the pin is 
+	// an OUTPUT pin. This is often done from setup() since you only need 
+	// to do it once.
+	pinMode(MY_LED, OUTPUT);
+}
+
+// The loop() method is called frequently.
+void loop() {
+	// I assume 1 unit to be 1 second long
+	// dot ( . ) is 1 unit
+	// dash ( _ ) is 3 units
+	// space between single letter components is 1 unit
+	// space between each letter is 3 units
+	
+	// each letter ends on HIGH so need a break in between;
+	print_A(); char_break();
+	print_L(); char_break();
+	print_E(); char_break();
+	print_K(); char_break();
+	print_S(); char_break();
+	print_A(); char_break();
+	print_N(); char_break();
+	print_D(); char_break();
+	print_R(); char_break(); 
+	print_A(); word_break();
+	
+}
+
+void char_break()
+{
+    digitalWrite(MY_LED, LOW);      // break between letters = 3 units
+	delay(3s);
+}
+
+void word_break()
+{
+    digitalWrite(MY_LED, LOW);      // break between "ALEKSANDRA" words = 7 units
+	delay(7s);
+}
+
+void print_A()  // ._
+{
+    digitalWrite(MY_LED, HIGH);     // .
+	delay(1s);
+	digitalWrite(MY_LED, LOW);      // break 
+	delay(1s);
+	digitalWrite(MY_LED, HIGH);     // _
+	delay(3s);
+}
+
+void print_L()  // ._..
+{
+    digitalWrite(MY_LED, HIGH);     // .
+	delay(1s);
+	digitalWrite(MY_LED, LOW);      // break 
+	digitalWrite(MY_LED, HIGH);     // _
+	delay(3s);
+	digitalWrite(MY_LED, LOW);      // break 
+	delay(1s);
+	digitalWrite(MY_LED, HIGH);     // .
+	delay(1s);
+	digitalWrite(MY_LED, LOW);      // break 
+	delay(1s);
+	digitalWrite(MY_LED, HIGH);     // .
+	delay(1s);
+}
+
+void print_E()  // .
+{
+    digitalWrite(MY_LED, HIGH);     // .
+	delay(1s);
+}
+
+void print_K()  // _._
+{
+    digitalWrite(MY_LED, HIGH);     // _
+	delay(3s);
+	digitalWrite(MY_LED, LOW);      // break 
+	delay(1s);
+	digitalWrite(MY_LED, HIGH);     // .
+	delay(1s);
+	digitalWrite(MY_LED, LOW);      // break 
+	delay(1s);
+	digitalWrite(MY_LED, HIGH);     // _
+	delay(3s);
+}
+
+void print_S()  // ...
+{
+    digitalWrite(MY_LED, HIGH);     // .
+	delay(1s);
+	digitalWrite(MY_LED, LOW);      // break 
+	delay(1s);
+	digitalWrite(MY_LED, HIGH);     // .
+	delay(1s);
+	digitalWrite(MY_LED, LOW);      // break 
+	delay(1s);
+	digitalWrite(MY_LED, HIGH);     // .
+	delay(1s);
+}
+
+void print_N()  // _.
+{
+    digitalWrite(MY_LED, HIGH);     // _
+	delay(3s);
+	digitalWrite(MY_LED, LOW);      // break 
+	delay(1s);
+	digitalWrite(MY_LED, HIGH);     // .
+	delay(1s);
+}
+
+void print_D()  // _..
+{
+    digitalWrite(MY_LED, HIGH);     // _
+	delay(3s);
+	digitalWrite(MY_LED, LOW);      // break 
+	delay(1s);
+	digitalWrite(MY_LED, HIGH);     // .
+	delay(1s);
+	digitalWrite(MY_LED, LOW);      // break 
+	delay(1s);
+	digitalWrite(MY_LED, HIGH);     // .
+	delay(1s);
+}
+
+void print_R()  // ._.
+{
+    digitalWrite(MY_LED, HIGH);     // .
+	delay(1s);
+	digitalWrite(MY_LED, LOW);      // break 
+	delay(1s);
+	digitalWrite(MY_LED, HIGH);     // _
+	delay(3s);
+	digitalWrite(MY_LED, LOW);      // break 
+	delay(1s);
+	digitalWrite(MY_LED, HIGH);     // .
+	delay(1s);
+}
